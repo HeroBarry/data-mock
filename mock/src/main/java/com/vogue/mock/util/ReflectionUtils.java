@@ -1,5 +1,9 @@
 package com.vogue.mock.util;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -12,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 反射工具类
  */
+@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 public final class ReflectionUtils {
 
   private static ConcurrentHashMap<Class<?>, List<Field>> fieldCache = new ConcurrentHashMap<>();
@@ -38,17 +43,21 @@ public final class ReflectionUtils {
    * @param object 对象
    * @param field 属性
    * @param value 属性值
-   * @throws ReflectiveOperationException 反射操作异常
    */
-  public static void setFieldValue(Object object, Field field, Object value) throws IllegalAccessException {
-    field.setAccessible(true);
-    field.set(object, value);
+  public static void setFieldValue(Object object, Field field, Object value) {
+
+    try {
+      field.setAccessible(true);
+      field.set(object, value);
+    }catch (ReflectiveOperationException e){
+    }
+
   }
 
   /**
    * 获取全部属性
-   * @param clazz
-   * @return
+   * @param clazz c
+   * @return g
    */
   public static List<Field> getFields(Class<?> clazz) {
     List<Field> fields = fieldCache.get(clazz);
@@ -76,8 +85,8 @@ public final class ReflectionUtils {
 
   /**
    * 获取全部方法
-   * @param clazz
-   * @return
+   * @param clazz c
+   * @return g
    */
   public static List<Method> getMethods(Class<?> clazz) {
     List<Method> methods = methodCache.get(clazz);

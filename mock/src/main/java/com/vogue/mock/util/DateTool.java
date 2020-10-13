@@ -6,9 +6,7 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
- * @Author: jsonzou
- * @Date: 2018/11/1 21:22
- * @Description:
+ *
  */
 public class DateTool {
    public enum DatePattern{
@@ -47,10 +45,10 @@ public class DateTool {
 
     /**
      * 日期字符串+日期字符串日期格式 转换为日期对象
-     * @param dateStr
-     * @param format
-     * @return Date
-     * @throws ParseException
+     * @param dateStr g
+     * @param format g
+     * @return Date g
+     * @throws ParseException g
      */
     public static Date getString2Date(String dateStr,String format) throws ParseException {
         return new SimpleDateFormat(format).parse(dateStr);
@@ -58,9 +56,9 @@ public class DateTool {
 
     /**
      * 日期字符串自动转换为日期对象
-     * @param dateStr
-     * @return Date
-     * @throws ParseException
+     * @param dateStr g
+     * @return Date g
+     * @throws ParseException g
      */
     public static Date getString2DateAuto(String dateStr) throws ParseException {
         String dateFormat = getDateFormat(dateStr);
@@ -69,8 +67,8 @@ public class DateTool {
 
     /**
      * 自动适配日期字符串的日期格式描述符
-     * @param dateStr
-     * @return String
+     * @param dateStr g
+     * @return String g
      */
     public static String getDateFormat(String dateStr){
         for (DatePattern dt: DatePattern.values()){

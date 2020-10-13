@@ -2,9 +2,7 @@ package com.vogue.mock.util;
 
 /**
  * 字段模式匹配工具类
- * @Author: jsonzou
- * @Date: 2018/11/26 10:58
- * @Description:
+ *
  */
 public class FieldMatchingResolver {
     /**
@@ -12,9 +10,9 @@ public class FieldMatchingResolver {
      *    [*FieldWord*]
      *    [*FieldWord]
      *    [FieldWord*]
-     * @param fieldName
-     * @param fieldPattern
-     * @return boolean
+     * @param fieldName g
+     * @param fieldPattern c
+     * @return boolean g
      */
     public static boolean isMatchPattern(String fieldName,String fieldPattern){
         boolean match=false;

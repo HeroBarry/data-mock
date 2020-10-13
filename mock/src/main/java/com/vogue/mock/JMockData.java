@@ -4,17 +4,17 @@ import com.vogue.mock.mocker.BaseMocker;
 
 /**
  * 模拟对象门面类
- *
- * @author jsonzou, kanyuxia, TaoYu
  */
 @SuppressWarnings("unchecked")
 public class JMockData {
 
 
   /**
+   *
    * 模拟数据
    *
    * @param clazz 模拟数据类型
+   * @param <T> v
    * @return 模拟数据对象
    */
   public static <T> T mock(Class<T> clazz) {
@@ -26,6 +26,7 @@ public class JMockData {
    *
    * @param clazz 模拟数据类型
    * @param mockConfig 模拟数据配置
+   * @param <T> t
    * @return 模拟数据对象
    */
   public static <T> T mock(Class<T> clazz, MockConfig mockConfig) {
@@ -35,11 +36,9 @@ public class JMockData {
 
   /**
    * 模拟数据
-   * <pre>
    * 注意typeReference必须以{}结尾
-   * </pre>
-   *
    * @param typeReference 模拟数据包装类型
+   * @param <T> t
    * @return 模拟数据对象
    */
   public static <T> T mock(TypeReference<T> typeReference) {
@@ -54,6 +53,7 @@ public class JMockData {
    *
    * @param typeReference 模拟数据类型
    * @param mockConfig 模拟数据配置
+   * @param <T> t
    * @return 模拟数据对象
    */
   public static <T> T mock(TypeReference<T> typeReference, MockConfig mockConfig) {

@@ -52,7 +52,7 @@ public class BeanMocker implements Mocker<Object> {
    * @param result
    * @throws IllegalAccessException
    */
-  private void setFieldValueByFieldAccessible(DataConfig mockConfig, Object result) throws IllegalAccessException{
+  private void setFieldValueByFieldAccessible(DataConfig mockConfig, Object result)  {
     for (Class<?> currentClass = clazz; currentClass != Object.class; currentClass = currentClass.getSuperclass()) {
       // 模拟有setter方法的字段
       for (Field field :currentClass.getDeclaredFields()) {

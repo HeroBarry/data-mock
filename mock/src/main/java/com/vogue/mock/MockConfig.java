@@ -128,8 +128,8 @@ public class MockConfig {
 
   /**
    * 提供实例化工厂
-   * @return MockConfig
-     */
+   * @return c
+   */
   public static MockConfig newInstance(){
     return new MockConfig();
   }
@@ -190,22 +190,27 @@ public class MockConfig {
 
   /**
    * 配置转路器 - 切换设置全局配置
-   * @return MockConfig
-     */
+   * @return c
+   */
   public MockConfig globalConfig(){
     return this;
   }
 
   /**
    * 配置转路器 - 切换设置全局字段模拟配置
-   * @return DataConfig
+   * @param fieldNames c
+   * @return c
    */
   public DataConfig subConfig(String... fieldNames){
     return this.subConfig(DataConfig.class,fieldNames);
   }
+
   /**
    * 配置转路器 - 切换设置局部Class字段模拟配置
-   * @return DataConfig
+   * @param clazz c
+   * @param fieldNames c
+   * @param <T> c
+   * @return c
    */
   public <T> DataConfig subConfig(Class<T> clazz,String... fieldNames){
     /**
@@ -241,8 +246,10 @@ public class MockConfig {
 
   /**
    * 获取指定配置，如果没有则返回全局配置
-   * @param clazz
-   * @return DataConfig
+   * @param clazz c
+   * @param fieldName c
+   * @param <T> t
+   * @return DataConfig c
      */
   public <T> DataConfig getDataConfig(Class<T> clazz,String fieldName){
 
@@ -315,8 +322,13 @@ public class MockConfig {
   public DataConfig globalDataConfig(){
     return this.GLOBAL_DATA_CONFIG;
   }
+
   /**
    * 模拟数据排除某各类的某几个字段
+   * @param clazz c
+   * @param fieldName c
+   * @param <T> c
+   * @return c
    */
   public <T> MockConfig excludes(Class<T> clazz,String... fieldName){
     excludeConfig.put(clazz, Arrays.asList(fieldName));
@@ -325,15 +337,19 @@ public class MockConfig {
 
   /**
    * 模拟数据全局排除某些字段名
-   * @param fieldNames
-   * @return MockConfig
+   * @param fieldNames d
+   * @return MockConfig d
      */
   public MockConfig excludes(String... fieldNames){
     excludeConfig.put(MockIgnore.class, Arrays.asList(fieldNames));
     return this;
   }
+
   /**
    * 判断是否排除模拟某个类
+   * @param clazz c
+   * @param <T> c
+   * @return c
    */
   public <T> boolean isConfigExcludeMock(Class<T>clazz){
     return this.excludeConfig.get(clazz)!=null && this.excludeConfig.get(clazz).size()==0;
@@ -342,6 +358,10 @@ public class MockConfig {
 
   /**
    * 判断是否排除模拟某个类的属性
+   * @param clazz c
+   * @param fieldName c
+   * @param <T> c
+   * @return c
    */
   public <T> boolean isConfigExcludeMock(Class<T>clazz,String fieldName){
     /**
@@ -376,11 +396,17 @@ public class MockConfig {
    * 设置全局配置
    * ********************************
    */
-
+  /**
+   *
+   * @param min g
+   * @param max g
+   * @return g
+   */
   public MockConfig byteRange(byte min, byte max) {
      GLOBAL_DATA_CONFIG.byteRange(min,max);
      return this;
   }
+
   public MockConfig booleanSeed(boolean... booleanSeed) {
      GLOBAL_DATA_CONFIG.booleanSeed(booleanSeed);
      return this;
@@ -441,8 +467,8 @@ public class MockConfig {
    * 根据正则表达是模拟数字类型，
    * 全局慎用，小数、整数、短整数等都会使用此表达式生成，有可能会超范围，
    * 建议通过转路器指定特定的字段或类型使用此功能
-   * @param numberRegex
-   * @return MockConfig
+   * @param numberRegex g
+   * @return MockConfig g
      */
   @Deprecated
   public MockConfig numberXeger(String numberRegex) {
@@ -456,8 +482,8 @@ public class MockConfig {
 
   /**
    * 根据正则表达是模拟字符串类型，
-   * @param stringRegex
-   * @return MockConfig
+   * @param stringRegex g
+   * @return MockConfig g
      */
   @Deprecated
   public MockConfig stringXeger(String stringRegex) {
@@ -473,7 +499,10 @@ public class MockConfig {
    * 获取全局配置
    * ********************************
      */
-
+  /**
+   *
+   * @return g
+   */
   public byte[] byteRange() {
     return GLOBAL_DATA_CONFIG.byteRange();
   }
