@@ -1,8 +1,22 @@
 # Android Data Mock
 
 #### 介绍
-Android 数据模拟 来源于另一个开源项目 
+Android 数据模拟 来源于另一个开源项目 [https://github.com/jsonzou/jmockdata](https://github.com/jsonzou/jmockdata)
 
+为实现没有接口的情况下依然快速把业务写下去 
+
+当前版本打包环境是AndroidX  由于用(import androidx.annotation.RequiresApi;) 
+
+使用这个库方法
+1. root gradle配置文件中配置
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+2. app module里面引用
+	implementation 'com.github.HeroBarry:data-mock:version'  // 当前版本：1.0.4
 #### 软件架构
 软件架构说明
 
